@@ -13,7 +13,7 @@ import bannerImage from "../../assets/image1.svg"
 
 function Home() {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleClickSignIn = () => navigate('/login')
 

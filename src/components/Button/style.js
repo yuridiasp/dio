@@ -1,9 +1,11 @@
 import styled, { css } from "styled-components"
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled.button`
     background-color: #565656;
     border-radius: 22px;
     position: relative;
+    width: 100%;
+    border: none;
 
     font-family: "Open Sans";
     color: white;

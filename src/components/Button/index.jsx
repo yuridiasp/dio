@@ -1,9 +1,9 @@
 import { ButtonContainer } from './style'
 
 // eslint-disable-next-line react/prop-types
-const Button = ({ title, variant = 'primary', onClick}) => {
+const Button = ({ title, variant = 'primary', onClick, ...rest}) => {
   return (
-    <ButtonContainer variant={variant} onClick={onClick}>
+    <ButtonContainer {...rest} variant={variant} onClick={onClick}>
         {title}
     </ButtonContainer>
   )

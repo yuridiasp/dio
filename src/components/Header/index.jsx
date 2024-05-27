@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
+import { MdKeyboardArrowDown } from 'react-icons/md'
 
 import {
     BuscarInputContainer,
-    Column,
     Container,
     Menu,
     MenuRight,
@@ -26,6 +26,8 @@ function Header({ autenticado, userPicture }) {
 
     const handleClickSignin = () => navigate('/login')
 
+    const handleClickRegister = () => navigate('/register')
+
     return (
         <Wrapper>
             <Container>
@@ -43,14 +45,17 @@ function Header({ autenticado, userPicture }) {
                 </Row>
                 <Row>
                     {autenticado ? (
-                        <UserPicture src={userPicture} />
+                        <>
+                            <UserPicture src={userPicture} />
+                            <MdKeyboardArrowDown color='#FFFFFF' />
+                        </>
                     ) : (
                         <>
                             <ButtonMenu />
                             <ContainerMenuRight>
                                 <MenuRight href='/'>Home</MenuRight>
                                 <Button onClick={() => handleClickSignin()} title="Entrar" />
-                                <Button title="Cadastrar" />
+                                <Button onClick={() => handleClickRegister()} title="Cadastrar" />
                             </ContainerMenuRight>
                         </>
                     )}

@@ -9,7 +9,6 @@ export const Container = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
 
     @media screen and (max-width: 800px) {
         flex-direction: column;
@@ -19,7 +18,7 @@ export const Container = styled.main`
 `
 
 export const Wrapper = styled.div`
-    max-width: 300px;
+    max-width: 370px;
 `
 
 export const Column = styled.div`
@@ -28,11 +27,11 @@ export const Column = styled.div`
 
 export const Row = styled.div`
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin: 20px 0;
     line-height: 44px;
     color: #FFFFFF;
+    gap: 5px;
 `
 
 export const Title = styled.h2`
@@ -64,24 +63,13 @@ export const SubtitleLogin = styled.p`
     line-height: 25px;
 `
 
-export const ForgotText = styled.a`
+export const LoginText = styled.a`
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 19px;
-    color: #E5E044;
-    text-decoration: none;
+    color: #23DD7A;
     cursor: pointer;
-`
-
-export const CreateText = styled.a`
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 19px;
-    color: #E23DD7;
     text-decoration: none;
-    cursor: pointer;
 `
