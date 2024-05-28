@@ -1,3 +1,5 @@
+import { IUserInfo } from './types'
+
 import {
     Container,
     NameText,
@@ -6,7 +8,7 @@ import {
 } from './style'
 
 // eslint-disable-next-line react/prop-types
-const UserInfo = ({ userName, userPicture, percentual = 0 }) => {
+const UserInfo = ({ userName, userPicture, percentual = 0 }: IUserInfo) => {
     return (
         <Container>
             <UserPicture src={userPicture} />

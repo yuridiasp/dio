@@ -4,12 +4,13 @@ import { MdEmail, MdLock } from 'react-icons/md'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { useContext } from "react"
 
+import { IFormData } from './types'
 import Button from '../../components/Button'
 import Header from '../../components/Header'
 import Input from '../../components/Input'
-
-import { login } from '../../service/api'
+import { AuthContext } from '../../context/auth'
 
 import {
   Column,
@@ -22,6 +23,7 @@ import {
   TitleLogin,
   Wrapper,
 } from './style'
+import { useAuth } from '../../hooks/useAuth'
 
 const schema = yup.object({
   email: yup.string().email('E-mail informado não é válido').required('Campo obrigatório'),
@@ -31,28 +33,21 @@ const schema = yup.object({
 function Login() {
 
   const iconColor = useMemo(() => '#8647AD', [])
-  const navigate = useNavigate()
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const  { handleLogin } = useAuth()
+
+  const { control, handleSubmit, formState: { errors } } = useForm<IFormData>({
     resolver: yupResolver(schema),
     mode: 'onSubmit'
   })
   
-  const onSubmit = async formData => {
-    const { success, error, message} = await login(formData)
-
-    if (success) {
-      navigate('/feed')
-    } else if (error) {
-      console.log(error)
-    } else {
-      console.log(message)
-    }
+  const onSubmit = async (formData: IFormData) => {
+    handleLogin(formData)
   }
 
   return (
     <div>
-        <Header autenticado={false} />
+        <Header />
         <Container>
           <Column>
             <Title>

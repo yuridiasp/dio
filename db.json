@@ -4,13 +4,15 @@
       "id": "1",
       "name": "Yuri",
       "email": "yuri@gmail.com",
-      "senha": "123456"
+      "senha": "123456",
+      "userPicture": "https://avatars.githubusercontent.com/u/81938754"
     },
     {
       "id": "2",
       "name": "Dias",
       "email": "dias@gmail.com",
-      "senha": "123456"
+      "senha": "123456",
+      "userPicture": "https://avatars.githubusercontent.com/u/81938754"
     }
   ],
   "posts": [

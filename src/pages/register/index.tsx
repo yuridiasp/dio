@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 
+import { IFormData } from './type'
 import Header from '../../components/Header'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
@@ -34,12 +35,12 @@ function Register() {
 
     const navigate = useNavigate()
 
-    const { control, handleSubmit, formState: { errors } } = useForm({
+    const { control, handleSubmit, formState: { errors } } = useForm<IFormData>({
         resolver: yupResolver(schema),
         mode: 'onSubmit'
     })
 
-    const onSubmit = async formData => {
+    const onSubmit = async (formData: IFormData) => {
         const { success, message, error } = await createUser(formData)
 
         if (success) {

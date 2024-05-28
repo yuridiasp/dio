@@ -1,4 +1,6 @@
 import { FiThumbsUp } from 'react-icons/fi'
+import { ICard } from './types'
+
 import {
     CardContainer,
     Content,
@@ -10,7 +12,7 @@ import {
 } from './style'
 
 // eslint-disable-next-line react/prop-types
-const Card = ({ userPicture, imageBackground, author, date, postTitle, postText, postTags, likes }) => {
+const Card = ({ userPicture, imageBackground, author, date, postTitle, postText, postTags, likes }: ICard) => {
     return (
         <CardContainer>
             <ImageBackground src={imageBackground} />

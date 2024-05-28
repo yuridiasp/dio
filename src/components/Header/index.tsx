@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { MdKeyboardArrowDown } from 'react-icons/md'
 
 import {
@@ -16,24 +16,20 @@ import {
 import Button from '../Button'
 import ButtonMenu from '../ButtonMenu'
 import logo from "../../assets/logodio.svg"
+import { useAuth } from '../../hooks/useAuth'
 
-// eslint-disable-next-line react/prop-types
-function Header({ autenticado, userPicture }) {
+function Header() {
 
-    const navigate = useNavigate();
-
-    const handleClickHome = () => navigate('/')
-
-    const handleClickSignin = () => navigate('/login')
-
-    const handleClickRegister = () => navigate('/register')
+    const  { user, handleSignOut } = useAuth()
 
     return (
         <Wrapper>
             <Container>
                 <Row>
-                    <img src={logo} onClick={() => handleClickHome()} />
-                    {autenticado ? (
+                    <Link to='/'>
+                        <img src={logo} />
+                    </Link>
+                    {user.id ? (
                         <>
                             <BuscarInputContainer>
                                 <Input placeholder='Buscar...' />
@@ -44,18 +40,24 @@ function Header({ autenticado, userPicture }) {
                     ): null}
                 </Row>
                 <Row>
-                    {autenticado ? (
+                    {user.id ? (
                         <>
-                            <UserPicture src={userPicture} />
-                            <MdKeyboardArrowDown color='#FFFFFF' />
+                            <UserPicture src={user.userPicture} />
+                            <a href="/" onClick={handleSignOut}>
+                                <MdKeyboardArrowDown color='#FFFFFF' />
+                            </a>
                         </>
                     ) : (
                         <>
                             <ButtonMenu />
                             <ContainerMenuRight>
                                 <MenuRight href='/'>Home</MenuRight>
-                                <Button onClick={() => handleClickSignin()} title="Entrar" />
-                                <Button onClick={() => handleClickRegister()} title="Cadastrar" />
+                                <Link to='/login'>
+                                    <Button title="Entrar" />
+                                </Link>
+                                <Link to='/register'>
+                                    <Button title="Cadastrar" />
+                                </Link>
                             </ContainerMenuRight>
                         </>
                     )}

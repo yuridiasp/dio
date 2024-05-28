@@ -1,4 +1,5 @@
 import { Controller } from "react-hook-form"
+import { IInput } from "./types"
 
 import {
     IconContainer,
@@ -7,8 +8,7 @@ import {
     ErrorText
 } from "./style"
 
-// eslint-disable-next-line react/prop-types
-const Input = ({ lefIcon, name, control, errorMessage, ...rest }) => {
+const Input = ({ lefIcon, name, control, errorMessage, ...rest }: IInput) => {
   return (
     <>
       <InputContainer>
@@ -17,7 +17,7 @@ const Input = ({ lefIcon, name, control, errorMessage, ...rest }) => {
         name={name}
         control={control}
         rules={{ required: true }}
-        render={({ field }) => <InputText value {...field} {...rest} />}
+        render={({ field }) => <InputText {...field} {...rest} />}
         />
       </InputContainer>
       { errorMessage ? (

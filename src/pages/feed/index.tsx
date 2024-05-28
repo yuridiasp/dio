@@ -13,12 +13,7 @@ import {
 } from './style'
 
 function Feed () {
-
-  // eslint-disable-next-line no-unused-vars
-  const [user, setUser] = useState({
-    userPicture: 'https://avatars.githubusercontent.com/u/81938754'
-  })
-
+  
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
@@ -27,7 +22,7 @@ function Feed () {
         setPosts(currentPosts)
       }
     })
-  }, [posts])
+  }, [])
 
   const [ranking, setRanking] = useState([])
 
@@ -41,7 +36,7 @@ function Feed () {
 
   return (
     <div>
-        <Header userPicture={user.userPicture} autenticado={true} />
+        <Header />
         <Container>
           <Column flex={3}>
             {posts ? posts.map(({ userPicture, imageBackground, author, date, postTitle, postText, postTags, likes }, index) => (
